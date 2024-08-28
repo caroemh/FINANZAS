@@ -7,6 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
+
 }
 
 .menu {
@@ -14,11 +15,13 @@ body {
     justify-content: space-between; /* Alinea los elementos entre sí */
     align-items: center;
     padding: 1rem;
-    background-color: #333;
-    color: #fff;
+    background-color: #9b47c2;
+    color: #572070;
 }
-
+.container
 .menu .logo {
+    max-width: 1200px;
+    margin: 0%;
     font-size: 1.5rem;
     font-weight: bold;
     color: #fff;
@@ -52,8 +55,11 @@ body {
 }
 
 .menu .navbar ul li a:hover {
-    background-color: #555;
+    color: #572070;
 }
+
+
+    
 /* seccion finanzas*/
 .header-content {
     max-width: 1200px;
@@ -83,7 +89,7 @@ body {
 .header-txt h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #007bff;
+    color: #0f2944;
 }
 
 .header-txt p {
@@ -119,7 +125,7 @@ body {
 
 .contenido-acerca {
     flex: 1;
-    text-align: left; /* Alinea el contenido a la izquierda */
+    text-align: center; /* Alinea el contenido a la izquierda */
     margin-right: 2rem; 
 }
 
@@ -144,7 +150,7 @@ body {
 /* footer*/
 
 .footer {
-    background-color: #333;
+    background-color:  #9b47c2;
     color: #fff;
     text-align: center;
     position: fixed;
@@ -177,3 +183,9 @@ body {
 
 
 
+<script type= "text/ javascript">
+    Window.addEventlistener("scroll", function(){
+    var header= document. queryselector("header");
+    header.classlist.tog
+})
+    

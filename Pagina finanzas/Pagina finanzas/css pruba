@@ -1,0 +1,23 @@
+@media (max-width: 991px) {
+    .content {
+        top: 0;
+        padding: 20px;
+    }
+    
+        .menu label {
+            display: initial;
+        }
+        .menu .navbar{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #9b47c2;
+            display: none;
+        }
+        .menu .navbar ul li {
+            width: 100%;
+        #menu :checked ~ .navbar{
+            display: initial;
+        }
+}    background: url("imagenes/watercolor.webp") ;
