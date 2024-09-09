@@ -3,13 +3,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+}
 body {
     
     background-color: #fdc3f646;
 font-family: "Montserrat", sans-serif;
 }
 
+/* Menu Styles */
 .menu {
     display: flex;
     justify-content: space-between; /* Alinea los elementos entre sí */
@@ -20,15 +21,14 @@ font-family: "Montserrat", sans-serif;
   padding: 10px;
   color: white;
 }
-.container
-.menu .logo {
+
+.container .menu .logo {
     max-width: 1200px;
     margin: 0%;
     font-size: 1.5rem;
     font-weight: bold;
     color:#ffd2f5;
     text-decoration: none;
-    
 }
 
 .menu input[type="checkbox"] {
@@ -37,6 +37,10 @@ font-family: "Montserrat", sans-serif;
 
 .menu label.menu-icon {
     display: none;
+}
+
+.menu .navbar {
+    display: flex;
 }
 
 .menu .navbar ul {
@@ -62,7 +66,54 @@ font-family: "Montserrat", sans-serif;
 }
 
 
+/* Media Queries for Hamburger Menu */
+@media (max-width: 768px) {
+    .menu .logo { 
+        max-width: fit-content;
+    }
     
+/* seccion finanzas*/
+    .menu .navbar {
+        display: none;
+        
+        position: absolute;
+        top: 70px; 
+        right: 0;
+        background: linear-gradient(to bottom, #ab8bf3b2, #f1aad679); 
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        padding-left: 33%;
+    }
+
+    .menu .navbar ul {
+        flex-direction: column;
+    }
+
+    .menu .navbar ul li {
+        margin: 0.5rem 0;
+    }
+
+    .menu .navbar ul li a {
+        padding: 1rem;
+    }
+
+    .menu input[type="checkbox"]:checked ~ .navbar {
+        display: flex;
+    }
+
+    .menu label.menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-icon {
+        font-size: 3rem;
+        z-index: 1;
+    }
+}
+
+
 /* seccion finanzas*/
 .header-content {
     max-width: 1200px;
@@ -185,4 +236,3 @@ font-family: "Montserrat", sans-serif;
 .text {
     font-size: 14px;
 }
-
