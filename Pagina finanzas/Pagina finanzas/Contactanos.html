@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/stylesC.css">
     <link rel="stylesheet" href="boxincons-2.0.9/css/boxincons.min.css">
     <script
     type="module"src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script>
@@ -37,17 +38,31 @@
             <div class="header-txt">
                 <h1>CONTACTANOS</h1>
                 <div class="contenido-content container">
-                  <h2> Contactar a Sabe Her</h2>
-                  <p>
-                    Envíe un mensaje privado con su nombre, código postal, número de teléfono, consulta y el mejor horario para contactarlo. 
-                    Recuerde: no incluya números de cuenta ni números de Seguro Social por razones de seguridad y verifique que esté utilizando nuestras cuentas verificadas.
-                      <br>  
-                  </p>
-      
-                  <div class="btn-social">
-                    <button onclick="window.location.href = 'https://www.facebook.com/profile.php?id=61563959109036&is_tour_dismissed';">Ir a Facebook</button>
-                      
+                  <div class="info">
+                      <h2> Contactar a Sabe Her</h2>
+                    <p>
+                      Envíe un mensaje privado con su nombre, código postal, número de teléfono, consulta y el mejor horario para contactarlo. 
+                      Recuerde: no incluya números de cuenta ni números de Seguro Social por razones de seguridad y verifique que esté utilizando nuestras cuentas verificadas.
+                        <br>  
+                    </p>
+        
+                    <div class="btn-social">
+                      <button onclick="window.location.href = 'https://www.facebook.com/profile.php?id=61563959109036&is_tour_dismissed';">Ir a Facebook</button>
+                        
+                    </div>
                   </div>
+                  <div id="formulario">
+                    <form class="form" id="form" method="POST">
+                      <label for="nombre">Nombre:</label><br />
+                      <input type="text" id="nombre" name="nombre" /><br />
+                      <label for="email">Email:</label><br />
+                      <input type="email" id="email" name="email" /><br />
+                      <label for="mensaje">Mensaje:</label><br />
+                      <input id="mensaje" name="mensaje"/><br />
+                      <button onclick="submit()" value="Enviar mensaje" >Enviar mensaje</button>
+                    </form>
+                  </div>
+                </div>
               </div>
           </section>
                 
@@ -71,5 +86,7 @@
                       </span>
                       <p class="text">Copyright 2024© | JA America</p>
            </footer> 
+
+           <script src="js/form.js"></script>
 </body>
 </html>
