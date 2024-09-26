@@ -120,10 +120,11 @@ body {
     max-width: 1200px;
     display: flex;
     flex-direction: column-reverse; /* Invierte la dirección en pantallas pequeñas */
-    align-items: center;
     text-align: center;
+    align-items: center;
     padding: 2rem;
     background-color: #ffdaf773;
+    
 }
 
 .header-content.container {
@@ -237,3 +238,45 @@ body {
 .text {
     font-size: 14px;
 }
+
+
+button {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #CE93D8;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 50%;
+    width: 25%;
+}
+
+
+button:hover {
+    background-color: #AB47BC;
+}
+
+.img{
+    border-radius: 50%;
+    width: 50%;
+}
+
+table{
+    color: #607D8B;
+    text-align: justify;
+    border-collapse: collapse;
+}
+
+td{
+    font-size: 85%;
+    padding: 1%;
+}
+
+thead:hover{
+    background-color: #eba0ba;
+}
+
+
+tr:hover {background-color: #E1BEE7;}
