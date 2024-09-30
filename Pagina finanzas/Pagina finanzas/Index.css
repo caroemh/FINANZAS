@@ -6,20 +6,24 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-
+    
+    background-color: #fdc3f646;
+font-family: "Montserrat", sans-serif;
 }
 
+/* Menu Styles */
 .menu {
     display: flex;
     justify-content: space-between; /* Alinea los elementos entre sí */
     align-items: center;
-    padding: 1rem;
-    background-color: #9b47c2;
-    color: #572070;
+    
+    
+    background: linear-gradient(to bottom, #ab8bf3b2, #f1aad679); /* Degradado de arriba hacia abajo */
+  padding: 10px;
+  color: white;
 }
-.container
-.menu .logo {
+
+.container .menu .logo {
     max-width: 1200px;
     margin: 0%;
     font-size: 1.5rem;
@@ -34,6 +38,10 @@ body {
 
 .menu label.menu-icon {
     display: none;
+}
+
+.menu .navbar {
+    display: flex;
 }
 
 .menu .navbar ul {
@@ -55,12 +63,58 @@ body {
 }
 
 .menu .navbar ul li a:hover {
-    color: #572070;
+    color: #d349e6;
 }
 
 
+/* Media Queries for Hamburger Menu */
+@media (max-width: 768px) {
+    .menu .logo { 
+        max-width: fit-content;
+    }
     
 /* seccion finanzas*/
+    .menu .navbar {
+        display: none;
+        
+        position: absolute;
+        top: 70px; 
+        right: 0;
+        background: linear-gradient(to bottom, #ab8bf3b2, #f1aad679); 
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        padding-left: 33%;
+    }
+
+    .menu .navbar ul {
+        flex-direction: column;
+    }
+
+    .menu .navbar ul li {
+        margin: 0.5rem 0;
+    }
+
+    .menu .navbar ul li a {
+        padding: 1rem;
+    }
+
+    .menu input[type="checkbox"]:checked ~ .navbar {
+        display: flex;
+    }
+
+    .menu label.menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-icon {
+        font-size: 3rem;
+        z-index: 1;
+    }
+}
+
+/* seccion finanzas */
 .header-content {
     max-width: 1200px;
     display: flex;
@@ -68,7 +122,7 @@ body {
     align-items: center;
     text-align: center;
     padding: 2rem;
-    background-color: #f0f0f0;
+    background-color: #ffdaf773;
 }
 
 .header-content.container {
@@ -103,7 +157,10 @@ body {
    max-height: 80%;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
 }
+
+
 /* programa calculadora*/
 
 .container {
@@ -150,8 +207,10 @@ body {
 /* footer*/
 
 .footer {
-    background-color:  #9b47c2;
-    color: #fff;
+   
+    background: linear-gradient(to bottom, #f1aad679, #ab8bf3b2); /* Degradado de arriba hacia abajo */
+  padding: 10px;
+  color: white;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -172,20 +231,13 @@ body {
 }
 
 .social-icon a {
-    color: #fff;
+    color: #ffffff;
     font-size: 24px;
     text-decoration: none;
 }
 
 .text {
     font-size: 14px;
+    color:#11161b;
+    padding-top: 8px;
 }
-
-
-
-<script type= "text/ javascript">
-    Window.addEventlistener("scroll", function(){
-    var header= document. queryselector("header");
-    header.classlist.tog
-})
-    
