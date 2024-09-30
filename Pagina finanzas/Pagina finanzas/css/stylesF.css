@@ -62,14 +62,17 @@ button:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-canvas {
-    max-width: 100%;
+
+.grafico-container {
     
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    margin-left: 20%;       
 }
 
 .results{
     position: relative;
-    
+
 }
 
 main{
