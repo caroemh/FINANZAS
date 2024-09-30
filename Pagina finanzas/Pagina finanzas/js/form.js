@@ -1,3 +1,7 @@
+/**
+ * Aquí se selecciona el primer formulario en el documento  de Contacto. 
+ * document.querySelector permite acceder a elementos del DOM.
+*/
 const formulario = document.querySelector('form');
 
 formulario.addEventListener('submit', function (event) {

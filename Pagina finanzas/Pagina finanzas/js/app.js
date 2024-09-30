@@ -39,27 +39,7 @@ function updateSavings() {
     document.getElementById('savings').value = '';
 }
 
-function updateResults() {
-    const balance = income - fixedExpenses - occasionalExpenses;
-    const excess = balance - savings;
-    
-    document.getElementById('total-income').innerText = `Ingresos Totales: ${income}`;
-    document.getElementById('total-fixed-expenses').innerText = `Gastos Fijos Totales: ${fixedExpenses}`;
-    document.getElementById('total-occasional-expenses').innerText = `Gastos Ocasionales Totales: ${occasionalExpenses}`;
-    document.getElementById('total-savings').innerText = `Ahorros Totales: ${savings}`;
-    document.getElementById('balance').innerText = `Saldo: ${balance}`;
-    document.getElementById('excess').innerText = `Excedente Disponible: ${excess}`;
-    
-    //Actualiznado el grafico con los nuevos datos
-    if (financeChart) {
-        financeChart.data.datasets[0].data = [income, fixedExpenses, occasionalExpenses, savings];
-        financeChart.update();  // Solo actualizamos el gráfico existente
-    }
-    
-}
-
-window.onload = function(){
-    //Creamos el grafico vacio al cargar la pagina
+function initializeChart() {
     const labels = ['Ingresos', 'Gastos Fijos', 'Gastos Ocasionales', 'Ahorros'];
     const graph = document.querySelector("#grafica");
 
@@ -67,7 +47,7 @@ window.onload = function(){
         labels: labels,
         datasets: [{
             label: "Resumen de tus finanzas mensuales",
-            data: [income, fixedExpenses, occasionalExpenses, savings],
+            data: [0.01, 0.01, 0.01, 0.01], // Establecer valores iniciales para que el gráfico se muestre
             backgroundColor: [
                 'rgb(209, 196, 233)',
                 'rgb(252, 228, 236)',
@@ -81,6 +61,7 @@ window.onload = function(){
                 'rgb(243, 229, 245)'
             ],
             borderWidth: 1
+            
         }]
     };
 
@@ -89,6 +70,34 @@ window.onload = function(){
         data: data,
     };
 
-    financeChart = new Chart(graph, config)// Creamos el graafico una vez
-};
+    financeChart = new Chart(graph, config); // Crear el gráfico una vez
+}
+
+// En la función updateResults, si no quieres que el gráfico vuelva a cero, ajusta la lógica
+function updateResults() {
+    const balance = income - fixedExpenses - occasionalExpenses;
+    const excess = balance - savings;
+
+    document.getElementById('total-income').innerText = `Ingresos Totales: ${income}`;
+    document.getElementById('total-fixed-expenses').innerText = `Gastos Fijos Totales: ${fixedExpenses}`;
+    document.getElementById('total-occasional-expenses').innerText = `Gastos Ocasionales Totales: ${occasionalExpenses}`;
+    document.getElementById('total-savings').innerText = `Ahorros Totales: ${savings}`;
+    document.getElementById('balance').innerText = `Saldo: ${balance}`;
+    document.getElementById('excess').innerText = `Excedente Disponible: ${excess}`;
     
+    // Asegúrate de que nunca se le pase un arreglo vacío al gráfico
+    if (financeChart) {
+        financeChart.data.datasets[0].data = [
+            income || 0.01,
+            fixedExpenses || 0.01,
+            occasionalExpenses || 0.01,
+            savings || 0.01
+        ]; // Asegúrate de que no se pase cero
+        financeChart.update();  // Solo actualizamos el gráfico existente
+    }
+}
+
+// Cargar el gráfico inicialmente con ceros
+window.onload = function(){
+    initializeChart(); // Llamar a la función para inicializar el gráfico
+};
