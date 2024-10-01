@@ -1,9 +1,16 @@
+//Variables iniciables en 0
 let income = 0;
 let fixedExpenses = 0;
 let occasionalExpenses = 0;
 let savings = 0;
 
+/**
+ * Creando funciones para actualizar valores, cada funcion recogera el valor ingresado 
+ * por el usuario en cada campo correspondiente 
+ */
+
 function updateIncome() {
+    //convierte el valor ingresado en numero decimal
     const input = parseFloat(document.getElementById('income').value);
     if (!isNaN(input) && input >= 0) {
         income += input;
@@ -13,6 +20,7 @@ function updateIncome() {
 }
 
 function updateFixedExpenses() {
+    //Convierte el valor ingresado en numero decimal
     const input = parseFloat(document.getElementById('fixed-expenses').value);
     if (!isNaN(input) && input >= 0) {
         fixedExpenses += input;
@@ -22,6 +30,7 @@ function updateFixedExpenses() {
 }
 
 function updateOccasionalExpenses() {
+    //convierte el valor ingresado en numero decimal
     const input = parseFloat(document.getElementById('occasional-expenses').value);
     if (!isNaN(input) && input >= 0) {
         occasionalExpenses += input;
@@ -31,6 +40,7 @@ function updateOccasionalExpenses() {
 }
 
 function updateSavings() {
+    //convierte el valor ingresado en numero decimal
     const input = parseFloat(document.getElementById('savings').value);
     if (!isNaN(input) && input >= 0) {
         savings += input;
@@ -39,12 +49,20 @@ function updateSavings() {
     document.getElementById('savings').value = '';
 }
 
+
+/**
+ * Funcion que nos estara creando el grafico de pastel utilizando Chart.js
+ * Estableceremos que inicie con datos iniciales (0.01 para que no sea invisible).
+*/
 function initializeChart() {
+    //Declaramos las categorias
     const labels = ['Ingresos', 'Gastos Fijos', 'Gastos Ocasionales', 'Ahorros'];
     const graph = document.querySelector("#grafica");
 
     const data = {
+        //Etiquetas para cada categoria
         labels: labels,
+        //Los datos del grafico clasificados con colores especificos
         datasets: [{
             label: "Resumen de tus finanzas mensuales",
             data: [0.01, 0.01, 0.01, 0.01], // Establecer valores iniciales para que el gráfico se muestre
@@ -73,7 +91,7 @@ function initializeChart() {
     financeChart = new Chart(graph, config); // Crear el gráfico una vez
 }
 
-// En la función updateResults, si no quieres que el gráfico vuelva a cero, ajusta la lógica
+//Funcion donde estaremos mostrando los resultados de los calculos con el grafico
 function updateResults() {
     const balance = income - fixedExpenses - occasionalExpenses;
     const excess = balance - savings;
@@ -85,14 +103,14 @@ function updateResults() {
     document.getElementById('balance').innerText = `Saldo: ${balance}`;
     document.getElementById('excess').innerText = `Excedente Disponible: ${excess}`;
     
-    // Asegúrate de que nunca se le pase un arreglo vacío al gráfico
+    // Aseguramos de que nunca se le pase un arreglo vacío al gráfico
     if (financeChart) {
         financeChart.data.datasets[0].data = [
             income || 0.01,
             fixedExpenses || 0.01,
             occasionalExpenses || 0.01,
             savings || 0.01
-        ]; // Asegúrate de que no se pase cero
+        ]; // Aseguramos de que no se pase cero
         financeChart.update();  // Solo actualizamos el gráfico existente
     }
 }
